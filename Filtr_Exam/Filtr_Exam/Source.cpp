@@ -188,6 +188,6 @@ int main() {
 	}
 	
 	cout << text2;
-	system("pause");
+
 	return 0;
 }
