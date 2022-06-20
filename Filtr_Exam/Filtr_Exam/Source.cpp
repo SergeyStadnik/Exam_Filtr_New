@@ -20,8 +20,7 @@ void DellSymbol(string& text, string dell,string& newText)
 				newText += text[i];
 		}
 	}
-	text = "";
-	text = newText;
+	
 	cout << "_________________Новый текст__________________________________" << endl;
 	cout << newText << endl;
 	cout << "______________________________________________________________" << endl;
@@ -40,10 +39,15 @@ int main() {
 	string dellEn;
 	string dellNumb;
 	string dellPlant;
+	string dell;
 	string text2;
 	string* t2;
 	int x=0;
 	t2 = &text2;
+	int sum1 = 0;
+	int sum2 = 0;
+	int sum3 = 0;
+	int sum4 = 0;
 	cout << "Введите текст который будете, редактировать" << endl;
 	getline(cin, text1);
 	cout << "Введите фильтр кирилицы" << endl;
@@ -62,29 +66,51 @@ int main() {
 		cout << "___________________Шаблоны удалений_____________________________" << endl;
 		cout << "(1)Кирилица "<<dellRu <<"(2)Латиница: "<<dellEn<< endl;
 		cout << "(3)Цифры " << dellNumb << "(4)Спецсимволы: " << dellPlant << endl;
-		cout << "Нажмите номер шаблана который хотите добавить" << endl;
+		cout << "Нажмите номер шаблона который хотите добавить" << endl;
 		cout << "Или нажмите 5 если хотите выйти из программы" << endl;
 		cin >> x;
+		if (x > 5)
+		{
+			cout << "Неправильный ввод,повторите пожалуйста" << endl;
+			cin >> x;
+		}
 		switch (x)
 		{
 		case (1):
+		{  sum1++;
+		if (sum1 == 2)
 		{
-           DellSymbol(*t1, dellRu, *t2);
+			cout << "__________ВНИМАНИЕ_______________"<<endl<<"Шаблон отключен" << endl;
+			sum1 = 0;
+		  }
+			
 		   break;
 		}
 		case (2):
+		{   sum2++;
+		if (sum2 == 2)
 		{
-			DellSymbol(*t1, dellEn, *t2);
+			cout << "__________ВНИМАНИЕ_______________" << endl << "Шаблон отключен" << endl;
+			sum2 = 0;
+		}
 			break;
 		}
 		case (3):
+		{   sum3++;
+		if (sum3 == 2)
 		{
-			DellSymbol(*t1, dellNumb, *t2);
+			cout << "__________ВНИМАНИЕ_______________" << endl << "Шаблон отключен" << endl;
+			sum3 = 0;
+		}
 			break;
 		}
 		case (4):
+		{   sum4++;
+		if (sum4 == 2)
 		{
-			DellSymbol(*t1, dellPlant, *t2);
+			cout << "__________ВНИМАНИЕ_______________" << endl << "Шаблон отключен" << endl;
+			sum4= 0;
+		}
 			break;
 		}
 		case (5):
@@ -95,6 +121,69 @@ int main() {
 		default:
 			break;
 		}
+		if (sum1 == 1 && sum2 == 0 && sum3 == 0 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellRu;
+		}
+		if (sum1 == 1 && sum2 == 1 && sum3 == 0 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellRu + dellEn;
+		}
+		if (sum1 == 1 && sum2 == 1 && sum3 == 1 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellRu + dellEn + dellNumb;
+		}
+		if (sum1 == 1 && sum2 == 1 && sum3 == 1 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellRu + dellEn + dellPlant + dellNumb;
+		}
+        if (sum1 == 0 && sum2 == 1 && sum3 == 1 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellPlant + dellEn + dellNumb;
+		}
+
+		if (sum1 == 0 && sum2 == 0 && sum3 == 1 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellNumb + dellPlant;
+		}
+		if (sum1 == 0 && sum2 == 0 && sum3 == 0 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellPlant;
+		}
+		
+		if (sum1 == 1 && sum2 == 0 && sum3 == 1 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellRu +  dellPlant + dellNumb ;
+		}
+		if (sum1 == 1 && sum2 == 1 && sum3 == 0 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellRu + dellPlant + dellEn;
+		}
+		if (sum1 == 0 && sum2 == 0 && sum3 == 1 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellNumb;
+		}
+		if (sum1 == 0 && sum2 == 1 && sum3 == 0 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellEn;
+		}
+		if (sum1 == 0 && sum2 == 0 && sum3 == 0 && sum4 == 0)
+		{
+			dell = " ";
+			
+		}
+		DellSymbol(*t1, dell, *t2);
 
 	}
 	
