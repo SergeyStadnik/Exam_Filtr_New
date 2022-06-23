@@ -23,7 +23,7 @@ void DellSymbol(string& text, string dell,string& newText)
 	
 	cout << "_________________Новый текст__________________________________" << endl;
 	cout << newText << endl;
-	cout << "______________________________________________________________" << endl;
+	cout << "______________________________________________________________" << endl<<endl<<endl<<endl;
 	newText = "";
 }
 
@@ -61,13 +61,16 @@ int main() {
 	
 	for (size_t i = 0; i < 100; i++)
 	{
+		
+		
 		cout << "___________________Ваш текст_____________________________" << endl;
 		cout << text1 << endl;
 		cout << "___________________Шаблоны удалений_____________________________" << endl;
-		cout << "(1)Кирилица "<<dellRu <<"(2)Латиница: "<<dellEn<< endl;
-		cout << "(3)Цифры " << dellNumb << "(4)Спецсимволы: " << dellPlant << endl;
+		cout << "(1)Кирилица "<<dellRu <<endl<<"(2)Латиница: "<<dellEn<< endl;
+		cout << "(3)Цифры " << dellNumb <<endl<< "(4)Спецсимволы: " << dellPlant << endl;
 		cout << "Нажмите номер шаблона который хотите добавить" << endl;
 		cout << "Или нажмите 5 если хотите выйти из программы" << endl;
+
 		cin >> x;
 		if (x > 5)
 		{
@@ -204,7 +207,9 @@ int main() {
 			dell += dellRu + dellNumb;
 		}
 		DellSymbol(*t1, dell, *t2);
-
+		cout << "Чтобы продолжить нажмите любую цифру" << endl;
+		/*cin >> x;
+		system("cls");*/
 	}
 	
 	cout << text2;
