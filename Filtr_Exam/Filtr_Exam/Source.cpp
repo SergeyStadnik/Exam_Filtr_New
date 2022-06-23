@@ -183,6 +183,26 @@ int main() {
 			dell = " ";
 			
 		}
+		if (sum1 == 0 && sum2 == 1 && sum3 == 1 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellEn + dellNumb;
+		}
+		if (sum1 == 1 && sum2 == 1 && sum3 == 0 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellRu + dellPlant;
+		}
+		if (sum1 == 0 && sum2 == 1 && sum3 == 0 && sum4 == 1)
+		{
+			dell = " ";
+			dell += dellEn + dellPlant;
+		}
+		if (sum1 == 1 && sum2 == 0 && sum3 == 1 && sum4 == 0)
+		{
+			dell = " ";
+			dell += dellRu + dellNumb;
+		}
 		DellSymbol(*t1, dell, *t2);
 
 	}
